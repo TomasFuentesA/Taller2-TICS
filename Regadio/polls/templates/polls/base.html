@@ -60,10 +60,13 @@
                     <div class="container-fluid">
                         <h1 class="mt-4">{% block title %}{% endblock %}</h1>
                     </div>
+                    <div class="container-fluid">
+                        {% block content %}{% endblock %}
+                    </div>
+                   
                 </main>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">
-                        {% block content %}{% endblock %}
                         <div class="d-flex align-items-center justify-content-between small">
                             <div class="text-muted">Copyright &copy; uwu </div>
                         </div>
