@@ -1,3 +1,75 @@
 {% extends "polls/base.html" %}
 
 {% block title %}Resumen{% endblock %}
+
+{% block content %}
+
+<div class="card">
+    <div class="card-header">
+      Sesiones de Riego
+    </div>
+    <div class="card-body">
+        <div class="row row-cols-4">
+        {% for riego, medicion in riegos %}
+        <div class="col">
+      <div class="card border-primary mb-3" style="max-width: 18rem;">
+        
+        <div class="card-header"> Sesion de Riego {{ riego.riegoid}}</div>
+        <div class="card-body text-primary">
+          <h5 class="card-title">Hora de riego:  {{medicion.hora}}</h5>
+          <p class="card-text">Tiempo de riego: {{riego.duracion}} min.</p>
+        </div>
+      </div>
+    </div>
+      {% endfor %}
+    </div>
+    </div>
+  </div>
+
+
+  <div class="card ">
+    <div class="card-header">
+      Estadicticas
+    </div>
+    <div class="card-body">
+        <div class="row row-cols-4">
+        <div class="col">
+        <div class="card border-primary mb-3" style="max-width: 18rem;">
+            <div class="card-header">Temperatura</div>
+            <div class="card-body text-primary">
+              <h5 class="card-title">Promedio: {{data.tprom}} [°C]</h5>
+              <p class="card-text">Maximo: {{data.tmax}} [°C]</p>
+              <p class="card-text">Minimo: {{data.tmin}} [°C]</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card border-primary mb-3" style="max-width: 18rem;">
+            <div class="card-header">Luz</div>
+            <div class="card-body text-primary">
+                <h5 class="card-title">Promedio: {{data.lprom}} </h5>
+                <p class="card-text">Maximo: {{data.lmax}} </p>
+                <p class="card-text">Minimo: {{data.lmin}} </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+
+          <div class="card border-primary mb-3" style="max-width: 18rem;">
+            <div class="card-header">Humedad</div>
+            <div class="card-body text-primary">
+                <h5 class="card-title">Promedio: {{data.hprom}} </h5>
+                <p class="card-text">Maximo: {{data.hmax}} </p>
+                <p class="card-text">Minimo: {{data.hmin}} </p>
+            </div>
+          </div>
+        </div>
+        </div>
+    </div>
+    
+  </div>
+
+
+  
+{% endblock %}

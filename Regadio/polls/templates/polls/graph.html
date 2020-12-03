@@ -1,3 +1,21 @@
 {% extends "polls/base.html" %}
 
 {% block title %}Graficos{% endblock %}
+{% block content %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.bundle.js"></script>
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+     Elegir Tipo
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item" href="{% url "graphl" %}">Luz</a>
+      <a class="dropdown-item" href="{% url "graphh" %}">Humedad</a>
+      <a class="dropdown-item" href="{% url "grapht" %}">Temperatura</a>
+    </div>
+  </div>
+
+
+
+
+
+{% endblock %}

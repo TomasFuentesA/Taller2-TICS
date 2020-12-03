@@ -1,0 +1,52 @@
+{% extends "polls/base.html" %}
+
+{% block title %}Grafico Humedad{% endblock %}
+{% block content %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.bundle.js"></script>
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+     Elegir Tipo
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item" href="{% url "graphl" %}">Luz</a>
+      <a class="dropdown-item" href="{% url "graphh" %}">Humedad</a>
+      <a class="dropdown-item" href="{% url "grapht" %}">Temperatura</a>
+    </div>
+  </div>
+<canvas id="myChart" width="1200" height="700"></canvas>
+<script>
+var ctx = document.getElementById('myChart').getContext("2d");
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: {{ horas }},
+        datasets: [{
+            label: 'Cantidad de Humedad',
+            data: {{ mediciones }},
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive :false ,
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+</script>
+
+
+
+{% endblock %}

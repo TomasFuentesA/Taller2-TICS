@@ -7,6 +7,8 @@ urlpatterns = [
     path('sensor/temperature', views.sensort, name='sensort'),
     path('sensor/light', views.sensorl, name='sensorl'),
     path('sensor/humidity', views.sensorh, name='sensorh'),
-    # ex: /polls/5/results/
-    path('sensor/graphs', views.graficos, name='graph')
+    path('sensor/graphs', views.graficos, name='graph'),
+    path('sensor/graphs/light', views.graficoluz, name='graphl'),
+    path('sensor/graphs/humidity', views.graficohum, name='graphh'),
+    path('sensor/graphs/temperature', views.graficotem, name='grapht')    
 ]
